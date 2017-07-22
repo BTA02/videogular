@@ -225,6 +225,8 @@ angular.module("com.2fdevs.videogular")
             var targetDuration = isVirtualClip ? this.totalTime / 1000 : event.target.duration;
 
             if (this.cuePoints) {
+                console.log("targetSeconds");
+                console.log(targetSeconds);
                 this.checkCuePoints(targetSeconds);
             }
 
@@ -242,6 +244,16 @@ angular.module("com.2fdevs.videogular")
                     var cp = this.cuePoints[tl][i];
                     var currentSecond = parseInt(currentTime, 10);
                     var start = parseInt(cp.timeLapse.start, 10);
+    
+                    console.log("Axtell");
+                    console.log(currentTime);
+                    console.log(cp);
+                    console.log(currentSecond);
+                    console.log(start);
+                    console.log("------------");
+                    // When I pick this back up, I need to use the debugger to see when things hit
+                    // I think I need to tighten the tolderence, but I might get lucky!
+                    // Lucky would be currentTime being a decimal, like 7.43, then I can just use that where I need it 
 
                     // If timeLapse.end is not defined we set it as 1 second length
                     if (!cp.timeLapse.end) cp.timeLapse.end = cp.timeLapse.start + 1;
